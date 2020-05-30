@@ -14,17 +14,17 @@ class SampleMessageBinderProvisioner
         group: String?,
         properties: ExtendedConsumerProperties<SampleConsumerProperties>?
     ): ConsumerDestination {
-        return PipelineMessaageDestination(name)
+        return SampleMessaageDestination(name)
     }
 
     override fun provisionProducerDestination(
         name: String?,
         properties: ExtendedProducerProperties<SampleProducerProperties>?
     ): ProducerDestination {
-        return PipelineMessaageDestination(name)
+        return SampleMessaageDestination(name)
     }
 
-    private class PipelineMessaageDestination(val destination: String?) : ConsumerDestination, ProducerDestination {
+    private class SampleMessaageDestination(val destination: String?) : ConsumerDestination, ProducerDestination {
         override fun getName(): String? {
             return destination?.trim();
         }

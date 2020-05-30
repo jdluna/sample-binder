@@ -10,12 +10,12 @@ import java.util.*
 @Configuration
 class ExtendedBindingHandlerMappingsProviderConfiguration {
     @Bean
-    open fun pipelineExtendedPropertiesDefaultMappingsProvider(): MappingsProvider? {
+    open fun sampleExtendedPropertiesDefaultMappingsProvider(): MappingsProvider? {
         return MappingsProvider {
             val mappings: MutableMap<ConfigurationPropertyName, ConfigurationPropertyName> =
                 HashMap()
-            mappings[ConfigurationPropertyName.of("spring.cloud.stream.pipeline.bindings")] =
-                ConfigurationPropertyName.of("spring.cloud.stream.pipeline.default")
+            mappings[ConfigurationPropertyName.of("spring.cloud.stream.sample.bindings")] =
+                ConfigurationPropertyName.of("spring.cloud.stream.sample.default")
             mappings
         }
     }

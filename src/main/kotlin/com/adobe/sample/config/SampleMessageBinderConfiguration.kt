@@ -13,13 +13,13 @@ import org.springframework.context.annotation.Configuration
 class SampleMessageBinderConfiguration {
     @Bean
     @ConditionalOnMissingBean
-    fun pipelineMessageBinderProvisioner(): SampleMessageBinderProvisioner {
+    fun sampleMessageBinderProvisioner(): SampleMessageBinderProvisioner {
         return SampleMessageBinderProvisioner()
     }
 
     @Bean
     @ConditionalOnMissingBean
-    fun pipelineMessageBinder(sampleMessageBinderProvisioner: SampleMessageBinderProvisioner): SampleMessageBinder {
+    fun sampleMessageBinder(sampleMessageBinderProvisioner: SampleMessageBinderProvisioner): SampleMessageBinder {
         return SampleMessageBinder(arrayOf(), sampleMessageBinderProvisioner)
     }
 }
