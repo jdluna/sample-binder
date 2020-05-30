@@ -1,0 +1,11 @@
+logging:
+  level:
+    org.springframework.cloud.stream.messaging.DirectWithAttributesChannel: DEBUG
+
+spring.cloud.stream.bindings.log-in-0:
+  destination: "sampledestination"
+
+spring.cloud.stream.sample.bindings.log-in-0.consumer:
+  clientId: "sample-content-sync"
+  secret: "xxx"
+  authCode: "yyy"
