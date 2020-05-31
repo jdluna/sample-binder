@@ -10,5 +10,9 @@ class SampleExtendedBindingProperties :
 
     override fun getDefaultsPrefix(): String = "spring.cloud.stream.sample.default"
 
+    override fun getBindings(): MutableMap<String, out Any> {
+        return doGetBindings()
+    }
+
     override fun getExtendedPropertiesEntryClass(): Class<out BinderSpecificPropertiesProvider> = SampleBindingProperties::class.java
 }

@@ -12,7 +12,7 @@ class SampleMessageBinder(headersToEmbed: Array<String>, provisioningProvider: S
             ExtendedProducerProperties<SampleProducerProperties>, SampleMessageBinderProvisioner>(headersToEmbed, provisioningProvider),
     ExtendedPropertiesBinder<MessageChannel, SampleConsumerProperties, SampleProducerProperties> {
 
-    val sampleExtendedBindingProperties: SampleExtendedBindingProperties = SampleExtendedBindingProperties()
+    var sampleExtendedBindingProperties: SampleExtendedBindingProperties? = null
 
     override fun createConsumerEndpoint(
         destination: ConsumerDestination?,
@@ -31,18 +31,18 @@ class SampleMessageBinder(headersToEmbed: Array<String>, provisioningProvider: S
     }
 
     override fun getExtendedConsumerProperties(channelName: String?): SampleConsumerProperties {
-        return sampleExtendedBindingProperties.getExtendedConsumerProperties(channelName)
+        return sampleExtendedBindingProperties!!.getExtendedConsumerProperties(channelName)
     }
 
     override fun getExtendedProducerProperties(channelName: String?): SampleProducerProperties {
-        return sampleExtendedBindingProperties.getExtendedProducerProperties(channelName)
+        return sampleExtendedBindingProperties!!.getExtendedProducerProperties(channelName)
     }
 
     override fun getDefaultsPrefix(): String {
-        return sampleExtendedBindingProperties.defaultsPrefix
+        return sampleExtendedBindingProperties!!.defaultsPrefix
     }
 
     override fun getExtendedPropertiesEntryClass(): Class<out BinderSpecificPropertiesProvider> {
-        return sampleExtendedBindingProperties.extendedPropertiesEntryClass
+        return sampleExtendedBindingProperties!!.extendedPropertiesEntryClass
     }
 }
